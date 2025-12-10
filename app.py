@@ -283,3 +283,4 @@ st.markdown("""
         Desarrollado por <strong>Genesis Badilla</strong>
     </div>
 """, unsafe_allow_html=True)
+# AJUSTE FINAL DE POSICIÓN DE FIRMA A IZQUIERDA
