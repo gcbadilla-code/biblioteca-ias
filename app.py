@@ -106,16 +106,13 @@ st.markdown("""
         border-radius: 10px;
         border: 1px solid #eee;
     }
-    .metrica-num { font-size: 24px; font-weight: bold; color: #002469; }
-    .metrica-label { font-size: 14px; color: #666; }
-    .metrica-sub { font-size: 12px; color: #28a745; font-weight: bold; }
 
     /* --- TU MARCA DE AGUA (FIRMA) A LA IZQUIERDA Y ARREGLADA --- */
     .watermark {
         position: fixed;
         bottom: 15px;
-        left: 15px; /* <--- IZQUIERDA */
-        right: auto;
+        left: 15px; /* <--- POSICIÓN CORRECTA A LA IZQUIERDA */
+        right: auto; /* Aseguramos que no se estire */
         background-color: rgba(255, 255, 255, 0.9);
         padding: 8px 15px;
         border-radius: 20px;
@@ -123,7 +120,7 @@ st.markdown("""
         color: #555;
         border: 1px solid #ccc;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        z-index: 999999; 
+        z-index: 999999; /* Asegura que se vea encima de todo */
         pointer-events: none;
     }
 </style>
