@@ -6,7 +6,7 @@ import base64
 st.set_page_config(
     page_title="Portal IA - Pontificia Universidad Católica de Chile",
     layout="wide",
-    page_icon="🛡️",
+    page_icon="🏛️",
     initial_sidebar_state="expanded"
 )
 
@@ -46,7 +46,7 @@ def tarjeta_html(imagen_nombre, titulo, descripcion, link_url, link_texto):
     </div>
     """
 
-# --- 3. CSS (FIRMA MOVIMIENTO A ARRIBA A LA DERECHA) ---
+# --- 3. CSS (DISEÑO Y ESTILO) ---
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
@@ -97,12 +97,22 @@ st.markdown("""
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         border-left: 5px solid #002469;
     }
+    
+    /* METRICAS */
+    .metrica-box {
+        text-align: center;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+    }
 
-    /* --- TU MARCA DE AGUA (FIRMA) MOVIDA ARRIBA A LA DERECHA (POSICIÓN SEGURA) --- */
+    /* --- TU MARCA DE AGUA (FIRMA) A LA IZQUIERDA Y ARREGLADA --- */
     .watermark {
         position: fixed;
-        top: 15px; /* <--- ARRIBA */
-        right: 15px; /* <--- DERECHA */
+        bottom: 15px;
+        left: 15px; /* <--- POSICIÓN CORRECTA A LA IZQUIERDA */
+        right: auto; /* Aseguramos que no se estire */
         background-color: rgba(255, 255, 255, 0.9);
         padding: 8px 15px;
         border-radius: 20px;
@@ -110,7 +120,7 @@ st.markdown("""
         color: #555;
         border: 1px solid #ccc;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        z-index: 999999; 
+        z-index: 999999; /* Asegura que se vea encima de todo */
         pointer-events: none;
     }
 </style>
@@ -140,7 +150,7 @@ with st.sidebar:
     st.write("---")
     opcion = st.radio("Ir a:", ["Inicio", "Catálogo de Soluciones", "Soporte"])
     st.write("---")
-    st.markdown("**Contacto:** Alonso Meneses\n\n📧 armenesesz@uc.cl")
+    st.markdown("**Contacto:** Genesis Badilla\n\n📧 gcbadilla@uc.cl")
 
 # --- 6. CONTENIDO ---
 
@@ -262,8 +272,8 @@ elif opcion == "Soporte":
     st.markdown("""
     <div class="tarjeta-blanca">
         <h4 style="color:#002469; margin-top:0;">👤 Contacto Oficial</h4>
-        <p><strong>Alonso Meneses</strong><br>Coordinador del Proyecto</p>
-        <p>📧 <a href="mailto:armenesesz@uc.cl" style="color:#009FE3; font-weight:bold;">armenesesz@uc.cl</a></p>
+        <p><strong>Genesis Badilla</strong><br>Coordinador del Proyecto</p>
+        <p>📧 <a href="mailto:gcbadilla@uc.cl" style="color:#009FE3; font-weight:bold;">gcbadilla@uc.cl</a></p>
     </div>
     """, unsafe_allow_html=True)
 
