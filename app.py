@@ -1,7 +1,3 @@
-# --- CREADO POR: GENESIS BADILLA ---
-# Proyecto: Biblioteca de Inteligencia Artificial para la UC
-# Fecha: 2025
-
 import streamlit as st
 import os
 import base64
@@ -50,14 +46,14 @@ def tarjeta_html(imagen_nombre, titulo, descripcion, link_url, link_texto):
     </div>
     """
 
-# --- 3. CSS (DISEÑO + Z-INDEX ALTO) ---
+# --- 3. CSS (DISEÑO Y ESTILO) ---
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
     
     html, body, [class*="css"] { font-family: 'Roboto', sans-serif; }
 
-    /* --- [CRÍTICO] OCULTAR MARCA DE STREAMLIT --- */
+    /* OCULTAR MARCA DE STREAMLIT */
     footer {visibility: hidden;} 
 
     /* TARJETA BLANCA */
@@ -110,12 +106,16 @@ st.markdown("""
         border-radius: 10px;
         border: 1px solid #eee;
     }
+    .metrica-num { font-size: 24px; font-weight: bold; color: #002469; }
+    .metrica-label { font-size: 14px; color: #666; }
+    .metrica-sub { font-size: 12px; color: #28a745; font-weight: bold; }
 
-    /* --- TU MARCA DE AGUA (FIRMA) --- */
+    /* --- TU MARCA DE AGUA (FIRMA) A LA IZQUIERDA Y ARREGLADA --- */
     .watermark {
         position: fixed;
         bottom: 15px;
-        left: 15px;
+        left: 15px; /* <--- IZQUIERDA */
+        right: auto;
         background-color: rgba(255, 255, 255, 0.9);
         padding: 8px 15px;
         border-radius: 20px;
@@ -123,7 +123,7 @@ st.markdown("""
         color: #555;
         border: 1px solid #ccc;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        z-index: 9999999; /* <--- VALOR CRÍTICO: Asegura que esté encima de todo */
+        z-index: 999999; 
         pointer-events: none;
     }
 </style>
