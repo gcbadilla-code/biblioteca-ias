@@ -50,12 +50,15 @@ def tarjeta_html(imagen_nombre, titulo, descripcion, link_url, link_texto):
     </div>
     """
 
-# --- 3. CSS (DISEÑO + TU MARCA DE AGUA) ---
+# --- 3. CSS (DISEÑO + Z-INDEX ALTO) ---
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
     
     html, body, [class*="css"] { font-family: 'Roboto', sans-serif; }
+
+    /* --- [CRÍTICO] OCULTAR MARCA DE STREAMLIT --- */
+    footer {visibility: hidden;} 
 
     /* TARJETA BLANCA */
     .tarjeta-blanca {
@@ -107,23 +110,21 @@ st.markdown("""
         border-radius: 10px;
         border: 1px solid #eee;
     }
-    .metrica-num { font-size: 24px; font-weight: bold; color: #002469; }
-    .metrica-label { font-size: 14px; color: #666; }
-    .metrica-sub { font-size: 12px; color: #28a745; font-weight: bold; }
 
     /* --- TU MARCA DE AGUA (FIRMA) --- */
     .watermark {
         position: fixed;
-        bottom: 10px;
-        right: 10px;
-        background-color: rgba(255, 255, 255, 0.8); /* Blanco semitransparente */
-        padding: 5px 15px;
+        bottom: 15px;
+        left: 15px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 8px 15px;
         border-radius: 20px;
         font-size: 12px;
-        color: #888;
-        border: 1px solid #ddd;
-        z-index: 9999;
-        pointer-events: none; /* Para que no moleste al hacer clic en cosas detrás */
+        color: #555;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 9999999; /* <--- VALOR CRÍTICO: Asegura que esté encima de todo */
+        pointer-events: none;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -274,14 +275,12 @@ elif opcion == "Soporte":
     st.markdown("""
     <div class="tarjeta-blanca">
         <h4 style="color:#002469; margin-top:0;">👤 Contacto Oficial</h4>
-        <p style="color:#333;">Si tienes dudas sobre el uso de las herramientas o necesitas reportar un problema:</p>
         <p><strong>Alonso Meneses</strong><br>Coordinador del Proyecto</p>
         <p>📧 <a href="mailto:armenesesz@uc.cl" style="color:#009FE3; font-weight:bold;">armenesesz@uc.cl</a></p>
     </div>
     """, unsafe_allow_html=True)
 
-# --- MARCA DE AGUA (TU FIRMA) ---
-# Esto pone tu nombre abajo a la derecha, fijo en la pantalla
+# --- TU FIRMA (PROTEGIDA Y VISIBLE) ---
 st.markdown("""
     <div class="watermark">
         Desarrollado por <strong>Genesis Badilla</strong>
